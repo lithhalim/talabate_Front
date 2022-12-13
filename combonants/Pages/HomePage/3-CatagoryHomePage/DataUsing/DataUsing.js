@@ -1,15 +1,15 @@
 
 
-import pizzaImage from "../../../../../assets/catagiries/pizza.png";
-import SweetImage from "../../../../../assets/catagiries/sweet.png";
-import BrostedImage from "../../../../../assets/catagiries/fridechiken.jpg";
-import HealthyImage from "../../../../../assets/catagiries/healthy.png";
-import HumbergerImage from "../../../../../assets/catagiries/hamburger.png";
-import PasstaImage from "../../../../../assets/catagiries/passta1.png"
+import pizzaImage from "../Assest/pizza.png";
+import SweetImage from "../Assest/sweet.png";
+import BrostedImage from "../Assest/Fridechiken.png";
+import HealthyImage from "../Assest/healthy.png";
+import HumbergerImage from "../Assest/hamburger.png";
+import PasstaImage from "../Assest/pasta.png"
 
 export  const DataUsing1=[{
     name:"Pizza",
-    type:"pizza",
+    type:"Pizza",
     images:pizzaImage
 },{
     name:"Sweet",
@@ -18,19 +18,19 @@ export  const DataUsing1=[{
 },
 {
     name:"Fride Chiken",
-    type:"frideChiken",
+    type:"Fride Chiken",
     images:BrostedImage
 },{
     name:"Healthy",
-    type:"healthy",
+    type:"Healthy",
     images:HealthyImage
 },{
-    name:"Humburger",
-    type:"humberguer",
+    name:"Hamburger",
+    type:"Hamburger",
     images:HumbergerImage  
 },{
-    name:"Pastta",
-    type:"Pastta",
+    name:"Pasta",
+    type:"Pasta",
     images:PasstaImage  
 }
 ]

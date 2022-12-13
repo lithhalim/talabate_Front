@@ -2,25 +2,29 @@ import React from 'react';
 import {View,Image} from "react-native";
 import { Text_Item,StyleText } from '../../../../Custom_Combonants/Text_Combonants';
 import { AntDesign } from '@expo/vector-icons'; 
+import IncreseAndDeacrese from '../../../../Custom_Combonants/IncreseAndDecreseButton/IncreseAndDeacrese';
 
 
-function CardBasket() {
+function CardBasket({data}:any) {
+    const {productName,selectItemQuentuty,Price,itemId,images}=data;
+
+    let TotalPrice=Number(selectItemQuentuty)*Number(Price)
+
   return (
-    <View style={{padding:15,display:"flex"}}>
-        <View style={{display:"flex",flexDirection:"row-reverse",justifyContent:"space-between",alignItems:"center"}}>
-            <Image source={{uri:"https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg"}} style={{width:70,height:70,borderRadius:10}}/>
+    <View style={{padding:15,display:"flex",elevation:10,shadowOpacity: 0.25,margin:10,marginTop:15,
+     shadowColor: "black",backgroundColor:"white",marginBottom: -5}}>
+        <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
+            <Image source={{uri:images}} 
+               style={{width:65,height:65,borderRadius:10}}/>
             <View>
-                <Text_Item Stylesh={StyleText.large} textUse="Spagitti " AddStyle={{textAlign:"center",fontWeight:"normal",padding:5,fontSize:18}}/>
-                <Text_Item Stylesh={StyleText.sosmall} textUse="meduime " AddStyle={{textAlign:"center"}}/>
+                <Text_Item Stylesh={StyleText.large} textUse={productName}
+                AddStyle={{fontWeight:"normal",paddingBottom:5}}/>
+                <Text_Item Stylesh={StyleText.sosmall} textUse="meduime " AddStyle={{fontSize:12}}  />
             </View>
         </View>
-        <View style={{display:"flex",flexDirection:"row-reverse",maxWidth:"70%",justifyContent: "space-between",alignItems:"center"}}>
-            <View style={{display:"flex",flexDirection:"row",width:80,justifyContent:"space-between",alignItems:"center"}}>
-                <AntDesign name="minus" size={20} color="orange" />
-                <Text_Item Stylesh={StyleText.small} textUse="8"/>
-                <AntDesign name="plus" size={20} color="orange" />
-            </View>
-            <Text_Item Stylesh={StyleText.small} textUse="4.51 JOD "/>
+        <View style={{display:"flex",flexDirection:"row",maxWidth:"90%",marginLeft:"auto"}}>
+            <IncreseAndDeacrese GetNumberItem={selectItemQuentuty} datause={data}/>
+            <Text_Item Stylesh={StyleText.small} textUse={`${TotalPrice} JOD`} AddStyle={{width:60,marginLeft:60,fontWeight:"bold"}}/>
         </View>
     </View>
   )

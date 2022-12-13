@@ -1,7 +1,7 @@
 
-import Google from "../../../../../assets/loginOther/google.png";
-import Facebook from "../../../../../assets/loginOther/facelogo.png";
-import Github from "../../../../../assets/loginOther/githublo.png";
+import Google from "../AuthnticationFaceGoogle/Assest/google.png";
+import Facebook from "../AuthnticationFaceGoogle/Assest/facelogo.png";
+import Github from "../AuthnticationFaceGoogle/Assest/githublo.png";
 
 
 export {

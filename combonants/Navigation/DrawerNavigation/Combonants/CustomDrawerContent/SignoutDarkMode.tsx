@@ -22,7 +22,7 @@ function SignoutDarkMode() {
 
   
   return (
-    <View style={{marginTop:190}}>
+    <View style={{marginTop:150}}>
         <View style={{display:"flex",flexDirection:"row-reverse",padding:20,alignItems:"center",paddingBottom:10}}>
             <Text_Item Stylesh={StyleText.medium} textUse="Dark Mode" AddStyle={{marginLeft:10,fontSize:15}}/>
             <Switch

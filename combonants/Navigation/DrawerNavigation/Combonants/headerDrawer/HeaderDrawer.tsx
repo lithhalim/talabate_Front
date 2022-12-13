@@ -6,7 +6,7 @@ import FavorateChoppping from './combonants/FavorateChoppping';
 import { Authntication_Create_Context } from '../../../../contextApi/Authntication_Context';
 
 
-import logo from "../../../../../assets/authntication/LogoSection.png"
+import logo from "../../../../Pages/RegusterFile/Assest/LogoSection.png"
 import { Text_Item,StyleText } from '../../../../Custom_Combonants/Text_Combonants';
 
 function HeaderDrawer() {

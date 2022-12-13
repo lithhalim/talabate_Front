@@ -2,7 +2,7 @@ import { StyleSheet } from  "react-native";
 
 export  const SStyless=StyleSheet.create({
   containerAll:{
-    backgroundColor:"white",padding:10,paddingBottom:10
+   padding:10,paddingBottom:20
   }  ,
   textHeader:{
     marginLeft:"auto",padding:10,fontStyle:"italic",fontSize:15

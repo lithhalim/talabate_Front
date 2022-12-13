@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {View,Image} from "react-native";
-import images from "../../../../assets/header/headerImage.png";
+import images from "./Assest/headerImage.png";
 import {ButtonEnum,Button_Item} from '../../../Custom_Combonants/Button_Combonants';
 import  { StyleText,Text_Item } from '../../../Custom_Combonants/Text_Combonants';
 

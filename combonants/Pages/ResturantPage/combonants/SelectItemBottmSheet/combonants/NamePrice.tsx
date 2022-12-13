@@ -3,11 +3,12 @@ import {StyleText,Text_Item} from '../../../../../Custom_Combonants/Text_Combona
 import {View} from "react-native";
 import { Styless } from '../style/style';
 
-function NamePrice() {
+function NamePrice({datause}:any) {
+  const {productName,Price} =datause;
   return (
     <View style={Styless.containerName}>
-        <Text_Item Stylesh={StyleText.large} textUse='McSpicey Fukll Food' />
-        <Text_Item Stylesh={StyleText.large} textUse='210 $' AddStyle={{color:"orange"}}/>
+        <Text_Item Stylesh={StyleText.large} textUse={productName} />
+        <Text_Item Stylesh={StyleText.large} textUse={`${Price} $`} AddStyle={{color:"orange"}}/>
     </View>      
   )
 }

@@ -5,13 +5,13 @@ import { AntDesign } from '@expo/vector-icons';
 import { Styles } from '../style/style';
 
 
-function NameDiscription() {
+function NameDiscription({resturantName,catagories}:any) {
   return (
     <View style={Styles.containerName}>
         <View >
-            <Text_Item Stylesh={StyleText.large} textUse='McDonals live lind' 
+            <Text_Item Stylesh={StyleText.large} textUse={resturantName} 
              AddStyle={{marginLeft:"auto"}}/>
-            <Text_Item Stylesh={StyleText.medium} textUse='burgers . chiken . nagests'
+            <Text_Item Stylesh={StyleText.medium} textUse={catagories}
              AddStyle={Styles.discription}/>
         </View>
         <AntDesign name="sharealt" size={24} color="black" />

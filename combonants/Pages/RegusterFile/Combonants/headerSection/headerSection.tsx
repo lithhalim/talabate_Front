@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from "react-native";
 import ImageFromAAssest from '../../../../Custom_Combonants/ImageFromAAssest';
-import LogoImage from "../../../../../assets/authntication/LogoSection.png";
+import LogoImage from "../../Assest/LogoSection.png";
 import {Style} from "./style/style";
 import  { StyleText,Text_Item } from '../../../../Custom_Combonants/Text_Combonants';
 

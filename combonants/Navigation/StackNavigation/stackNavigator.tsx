@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React  from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Signin from '../../Pages/RegusterFile/Signin_File/Signin';
-import SignupSection from '../../Pages/RegusterFile/Signup_File/Signup';
-import MyDrawer from '../DrawerNavigation/DrawerNavigation';
-import CamiraPage from '../../Pages/RegusterFile/Combonants/MiddelSection/combonant/UploadImage/UploadImagePage/ItemInModal/TackPhoto/combonants/TackPhotoPage/TackPhotoButton/TakePhotoPage';
+
+import { ArrayPath } from './DataUsing/DataUsing';
+
 
 const Stack = createNativeStackNavigator();
+
 
 
 function StackNavigator() {
@@ -14,10 +14,9 @@ function StackNavigator() {
             headerShown: false
           }}
         >
-            <Stack.Screen name="drawer" component={MyDrawer}  />
-                <Stack.Screen name="CamiraPage" component={CamiraPage}  options={{headerShown:false}} />
-                    <Stack.Screen name="signin" component={Signin}  options={{headerShown:false}} />
-                <Stack.Screen name="signup" component={SignupSection}  options={{headerShown:false}}/>
+          {ArrayPath.map(({combonants,name},i)=>(
+            <Stack.Screen key={i} name={name} component={combonants} />
+          ))}          
         </Stack.Navigator>
   );
 }

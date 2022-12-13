@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {View,TextInput} from "react-native"
 import { AntDesign } from '@expo/vector-icons'; 
 import ImageResturant from './combonants/ImageResturant';
@@ -6,16 +6,15 @@ import NameDiscription from './combonants/Name&Discription';
 import IconsResturant from './combonants/IconsResturant';
 import {Styles} from "./style/style";
 
-
-function InformationResturant() {
-    const [text,onChangeText]=useState("");
+function InformationResturant({datause}:any) {
+    const [text,onChangeText]=useState("")
 
 
   return (
     <View style={{backgroundColor:"white"}}>
 
-        <ImageResturant/>
-        <NameDiscription/>
+        <ImageResturant  images={datause.images}/>
+        <NameDiscription resturantName={datause.restaurantName} catagories={datause.categories}/>
         <IconsResturant/>
 
         <View style={Styles.containerSearch}>

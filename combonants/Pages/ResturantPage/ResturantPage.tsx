@@ -7,7 +7,7 @@ import MenuResturant from './combonants/MenuResturant/MenuResturant';
 import { Modal_Create_Context } from './contextApi/SelectItemInResturant';
 import GoToBasketSection from './combonants/GoToBasketSection/GoToBasketSection';
 
-function ResturantPage() {
+function ResturantPage({datause}:any) {
     const bottomSheetRef = useRef<BottomSheet>(null);
     const [Isopen,setOpen]=useState(false);
     const Modal_ShowBottmSheet=useContext(Modal_Create_Context); 
@@ -33,8 +33,8 @@ function ResturantPage() {
   return (
     <View style={{flex:1}}>
       <ScrollView>
-        <InformationResturant/>
-        <MenuResturant/>
+        <InformationResturant datause={datause}/>
+        <MenuResturant datause={datause}/>
       </ScrollView> 
       <BottomSheet
         ref={bottomSheetRef}

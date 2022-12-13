@@ -10,7 +10,7 @@ interface TextCombonant{
 }
 
 function Back_Combonants({color,AddStyle}:TextCombonant) {
-    let Style={position:"absolute" ,right:20,top:50}
+    let Style={position:"absolute" ,right:20,top:50,zIndex: 10000}
 
     const UseStyle:any={
       ...Style,...AddStyle

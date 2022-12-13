@@ -10,7 +10,7 @@ function IconsSection() {
   return (
         <View style={Styless.containerIocns}>
             {Datause.map(({name,value,icons},i)=>(
-                    <View style={Styless.SecandContaner}>
+                    <View style={Styless.SecandContaner} key={i}>
                         {icons}
                         <Text_Item Stylesh={StyleText.medium} textUse={value} AddStyle={Styless.TextStyle}/>
                     </View>
