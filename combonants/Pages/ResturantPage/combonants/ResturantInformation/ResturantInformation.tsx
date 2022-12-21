@@ -14,7 +14,8 @@ function InformationResturant({datause}:any) {
     <View style={{backgroundColor:"white"}}>
 
         <ImageResturant  images={datause.images}/>
-        <NameDiscription resturantName={datause.restaurantName} catagories={datause.categories}/>
+        <NameDiscription resturantname={datause.restaurantname} 
+          catagories={datause.categories}/>
         <IconsResturant/>
 
         <View style={Styles.containerSearch}>

@@ -4,11 +4,14 @@ import {View} from "react-native";
 import { Styless } from '../style/style';
 
 function NamePrice({datause}:any) {
-  const {productName,Price} =datause;
+  const {productname,price} =datause;
   return (
     <View style={Styless.containerName}>
-        <Text_Item Stylesh={StyleText.large} textUse={productName} />
-        <Text_Item Stylesh={StyleText.large} textUse={`${Price} $`} AddStyle={{color:"orange"}}/>
+        <Text_Item Stylesh={StyleText.large} 
+          textUse={productname} />
+        <Text_Item Stylesh={StyleText.large} 
+          textUse={`${price} $`} 
+          AddStyle={{color:"orange"}}/>
     </View>      
   )
 }

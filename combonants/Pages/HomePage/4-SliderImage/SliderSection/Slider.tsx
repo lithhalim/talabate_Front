@@ -34,7 +34,7 @@ const Slider = ({datause}:any) => {
   return (
     <View style={{paddingLeft:15,paddingRight:15,backgroundColor:"white"}}>
       <FlatList
-        data={datause.getRestaurant.slice(0,6)}
+        data={datause.GetResturant.slice(0,6)}
         renderItem={({item}) => <SlideItem item={item} />}
         horizontal
         pagingEnabled
@@ -44,7 +44,7 @@ const Slider = ({datause}:any) => {
         viewabilityConfig={viewabilityConfig}
         keyExtractor={(value,key)=>(key.toString())}
       />
-      <Pagination data={datause.getRestaurant.slice(0,6)} scrollX={scrollX} />
+      <Pagination data={datause.GetResturant.slice(0,6)} scrollX={scrollX} />
     </View>
   );
 };

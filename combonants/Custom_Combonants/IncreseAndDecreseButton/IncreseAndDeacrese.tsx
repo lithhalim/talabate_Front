@@ -14,6 +14,7 @@ interface Custom{
 }
 
 function IncreseAndDeacrese({datause,GetNumberItem}:Custom) {
+
     const dispatch=useDispatch();
 
 

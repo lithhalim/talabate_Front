@@ -8,12 +8,16 @@ function FavorateChoppping() {
   return (
     <View style={Style.containerFavorate}>
         <View>
-            <Text_Item Stylesh={StyleText.medium} textUse='1' AddStyle={Style.textStyle}/>
-            <Text_Item Stylesh={StyleText.medium} textUse='My Favorates' AddStyle={{color:"white"}}/>
+            <Text_Item Stylesh={StyleText.medium} textUse='1' 
+              AddStyle={Style.textStyle}/>
+            <Text_Item Stylesh={StyleText.medium} textUse='My Favorates'
+               AddStyle={{color:"white"}}/>
         </View>
         <View>
-            <Text_Item Stylesh={StyleText.medium} textUse='1' AddStyle={Style.textStyle}/>
-            <Text_Item Stylesh={StyleText.medium} textUse='choppingCart' AddStyle={{color:"white"}}/>
+            <Text_Item Stylesh={StyleText.medium} textUse='1' 
+              AddStyle={Style.textStyle}/>
+            <Text_Item Stylesh={StyleText.medium} textUse='choppingCart' 
+              AddStyle={{color:"white"}}/>
         </View>
     </View>
 )

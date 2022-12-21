@@ -8,12 +8,14 @@ import PostData_Reguster from '../FetchApiSection/Api_Section';
 import { useNavigation } from '@react-navigation/native';
 import ButtonNotification from './combonant/ButtonNotification/ButtonNotification';
 import { UploadImage_Context } from './combonant/UploadImage/contextApi/UploadImageContext';
+import { Authntication_Create_Context } from '../../../../contextApi/Authntication_Context';
 
 
 function InputContainer({TypeData,AllDataUse}:any) {
     const Navigation=useNavigation();
     const [StateEmail,setStatusEmail]=useState(false);
     const UploadImages=useContext(UploadImage_Context)?.ImageUploded;
+    const AuthnticationContext=useContext(Authntication_Create_Context)
 
     const [LodingButton,setLoadingButton]=useState(false)
 
@@ -22,7 +24,8 @@ function InputContainer({TypeData,AllDataUse}:any) {
         setLoadingButton(true)
         PostData_Reguster(
             TypeData,data,setStatusEmail,
-            Navigation,UploadImages,setLoadingButton)
+            Navigation,UploadImages,setLoadingButton,
+            AuthnticationContext)
     }
 
 
@@ -42,7 +45,8 @@ return (
                         <UploadImageButton TypeData={TypeData}/>
 
                         <ButtonNotification StateEmail={StateEmail} 
-                                handleSubmit={handleSubmit} TypeData={TypeData} LodingButton={LodingButton}/>
+                                handleSubmit={handleSubmit} TypeData={TypeData} 
+                                LodingButton={LodingButton}/>
                         
                 </View>
             )}

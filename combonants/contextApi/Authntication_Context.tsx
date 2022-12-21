@@ -13,8 +13,7 @@ interface ContextChildreen{
 export function AuthnticationProvider(props:ContextChildreen) {
 
     const [AllUserData,setAllUserData]=useState<any>(false);
-    
-    
+        
     useEffect(()=>{
       let SaveUser= async () => {
         let data=   await AsyncStorage.getItem("saveReguster");

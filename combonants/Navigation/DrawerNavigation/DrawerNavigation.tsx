@@ -18,7 +18,6 @@ function MyDrawer() {
               drawerActiveBackgroundColor:"rgba(250,250,250,.6)",
               drawerType:'back',
               headerShown: false
-
             }}
             drawerContent={(props) => 
             <CustomDrawerContent {...props} />}>
@@ -27,7 +26,8 @@ function MyDrawer() {
                     drawerIcon: () => (
                         <View style={Style.Container}>
                                 {icon}
-                                <Text_Item Stylesh={StyleText.medium} textUse={name} AddStyle={Style.textStyle}/>
+                                <Text_Item Stylesh={StyleText.medium} 
+                                  textUse={name} AddStyle={Style.textStyle}/>
                         </View>
                     ),
                 }}/>

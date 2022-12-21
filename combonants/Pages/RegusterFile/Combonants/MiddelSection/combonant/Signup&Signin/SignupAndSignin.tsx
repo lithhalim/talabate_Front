@@ -1,12 +1,11 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Button, Pressable, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {  Pressable, View } from 'react-native';
 import {StyleText,Text_Item} from '../../../../../../Custom_Combonants/Text_Combonants';
 
 
 function SignupAndSignin({TypeData}:any) {
-    const Navigation=useNavigation();
+    const Navigation=useNavigation<any>();
 
     const onPress=()=>{
       Navigation.navigate(TypeData=="signin"?"signup":"signin")

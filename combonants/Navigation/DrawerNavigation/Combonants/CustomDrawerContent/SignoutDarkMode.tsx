@@ -4,15 +4,18 @@ import {StyleText,Text_Item} from '../../../../Custom_Combonants/Text_Combonants
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Authntication_Create_Context } from '../../../../contextApi/Authntication_Context';
 import AsyncStorage  from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
 
 function SignoutDarkMode() {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const UserAuthnticate=useContext(Authntication_Create_Context);
+    const DataUseContext=useContext(Authntication_Create_Context)
 
 
     const Signout=()=>{
+        axios.post(`http://192.168.8.101:5000/logout/${DataUseContext.AllUserData.regusterid}`)
         let SaveUser= async () => {
             UserAuthnticate.setAllUserData(false)
              await AsyncStorage.removeItem("saveReguster");
@@ -22,7 +25,7 @@ function SignoutDarkMode() {
 
   
   return (
-    <View style={{marginTop:150}}>
+    <View style={{marginTop:90}}>
         <View style={{display:"flex",flexDirection:"row-reverse",padding:20,alignItems:"center",paddingBottom:10}}>
             <Text_Item Stylesh={StyleText.medium} textUse="Dark Mode" AddStyle={{marginLeft:10,fontSize:15}}/>
             <Switch

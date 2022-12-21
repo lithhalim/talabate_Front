@@ -6,29 +6,30 @@ import { Styless } from '../style/style';
 import IncreseAndDeacrese from '../../../../../Custom_Combonants/IncreseAndDecreseButton/IncreseAndDeacrese';
 
 function BottonSectio({datause}:any) {
-  const {itemId} =datause;
+  const {itemid} =datause;
 
   const select=useSelector((state:any)=>(state.addToCartSlice.allProduct));
   
-  let IndexItem=select.findIndex(((obj:any) => obj.itemId == itemId));
+  let IndexItem=select.findIndex(((obj:any) => obj.itemid == itemid));
   
   let Datause=0;
   if(IndexItem==-1){
     Datause=0
   }else{
-    Datause=Number(select[IndexItem].selectItemQuentuty)
+    Datause=Number(select[IndexItem].selectitemquentuty)
   }
   
 
 
 
-
   return (
     <View style={Styless.containerButton}>
-      <Text_Item Stylesh={StyleText.medium} textUse={`Add On Basket ${datause!==0?Number(datause.Price)*Number(Datause):0} $`}
-          AddStyle={{color:"white",backgroundColor:"orange",width:220,borderRadius:10
-          ,textAlign:"center",paddingTop:10,paddingBottom:10}}/>
-         <IncreseAndDeacrese datause={datause} GetNumberItem={Datause}/>
+      <Text_Item Stylesh={StyleText.medium} 
+        textUse={`Add On Basket ${datause!==0?Number
+          (datause.price)*Number(Datause):0} $`}
+            AddStyle={Styless.TextStyle}/>
+         <IncreseAndDeacrese datause={datause} 
+            GetNumberItem={Datause}/>
     </View>  
     )
 }

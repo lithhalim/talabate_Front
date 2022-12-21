@@ -5,7 +5,7 @@ import { Style } from './style/style';
 import { Modal_Create_Context } from '../../../contextApi/SelectItemInResturant';
 
 function CardItem({datause}:any) {
-  const {images,description,Price,productName}=datause;
+  const {images,description,price,productname}=datause;
 
     const ModelContext=useContext(Modal_Create_Context)
     const SelectItem=()=>{
@@ -20,10 +20,10 @@ function CardItem({datause}:any) {
         <Image source={{uri:images}} 
         style={Style.Images} />
             <View>
-                <Text_Item Stylesh={StyleText.medium} textUse={productName}/>
+                <Text_Item Stylesh={StyleText.medium} textUse={productname}/>
                 <Text_Item Stylesh={StyleText.small} textUse={descriptiondata} 
                     AddStyle={Style.discription}/>
-                <Text_Item Stylesh={StyleText.medium} textUse={`${Price} $`} 
+                <Text_Item Stylesh={StyleText.medium} textUse={`${price} $`} 
                     AddStyle={Style.price}/>
             </View>
     </TouchableOpacity>

@@ -1,21 +1,19 @@
-import React,{ useEffect, useLayoutEffect, useState } from 'react'
+import React,{useLayoutEffect, useState } from 'react'
 import HeaderHome from './1-HeaderHome/HeaderHome';
-import {ScrollView,Text} from "react-native"
+import {ScrollView} from "react-native"
 import WelcomeSection from './2-WelcomeSection/WelcomeSection';
 import Catagories_Home from './3-CatagoryHomePage/Catagories_Home';
 import Fanous_Resturant from './5-FamousResturant/Fanous_Resturant';
 import { useNavigation } from '@react-navigation/native';
 import Slider from "../../Pages/HomePage/4-SliderImage/SliderSection/Slider";
 
-import { gql,useQuery } from '@apollo/client';
-import LoadingCombonants from '../../Custom_Combonants/LoadingCombonants/LoadingCombonants';
-
+import { useQuery } from '@apollo/client';
+import { QueryGraphql } from './Graphql/QueryGraphql';
 
 
 function HomePage() {
-  const {data,error,loading}=useQuery(DataType);
+  const {data,error,loading}=useQuery(QueryGraphql);
   const [Scrolling,setScrolling]=useState(false);
-
 
 
 
@@ -47,13 +45,3 @@ const getdata=(event:any)=>{
 export default HomePage
 
 
-const DataType=gql`
-  {
-    getRestaurant{
-      restaurantId,
-      restaurantName,
-      images,
-      categories 
-    }
-  }
-`

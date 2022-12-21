@@ -5,10 +5,10 @@ export const IncreseQuantity=(state:any,action:any)=>{
     //Find index of specific object using findIndex method.    
     state.value=state.value+=1;
 
-    const objIndex = state.allProduct.findIndex(((obj:any) => obj.itemId == action.payload.itemId));
-    let newnumber=Number(state.allProduct[objIndex].selectItemQuentuty)
+    const objIndex = state.allProduct.findIndex(((obj:any) => obj.itemid == action.payload.itemid));
+    let newnumber=Number(state.allProduct[objIndex].selectitemquentuty)
     newnumber+=1
-    state.allProduct[objIndex].selectItemQuentuty =newnumber;
+    state.allProduct[objIndex].selectitemquentuty =newnumber;
 
 
     let SaveUser= async () => {

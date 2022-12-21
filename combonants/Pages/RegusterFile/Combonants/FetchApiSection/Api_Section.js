@@ -9,23 +9,26 @@ import AsyncStorage  from '@react-native-async-storage/async-storage';
 
 export default function PostData_Reguster(
     TypeData,data,setStatusEmail,
-    Navigation,UploadImages,setLoadingButton){
+    Navigation,UploadImages,setLoadingButton,
+    AuthnticationContext){
     
-  
       //-----------------------------------Signup Section -----------------------------------//
       if(TypeData=="signup"){
           data.regusterid=uuid();
           data.image=UploadImages;
           axios.post(`http://192.168.8.101:5000/signup`,data).
-          then((x)=>{
-            if(x.data.status=="Email Is ok"){
+          then((DataAccept)=>{
+            if(DataAccept.status(200)){
                 setLoadingButton(false)
                 Navigation.navigate("signin")
-            }else if(x.data.status=="Email Is Taken"){
+            }else {
               setLoadingButton(false)
               setStatusEmail("Email Is Taken")
             }
-        })  
+        }).catch((error)=>{
+                setLoadingButton(false)
+                setStatusEmail("Problem In Regustration")  
+        })
       }
       //-------------------------------Sign in Section -------------------------------------//
       else if("signin"){
@@ -39,26 +42,24 @@ export default function PostData_Reguster(
                     'Content-Type': 'application/json' ,
                     'Accept': 'application/json',
                     "authorization":`BASIC ${decoded}` }
-            }).then((x)=>{
-            //send the accsess Token To User To Useit
-            if(x.data.accessToken==="Error Email Or Password"){
-                    setLoadingButton(false)
-                    setStatusEmail("Wrong Email Or Password")
-            }else{
-                    setLoadingButton(false)
-                    const decoded = jwt_decode(x.data.accessToken);     
-                    let SaveUser= async () => {
+            }).then((dataAccept)=>{
+                if(dataAccept.status==200){
+                        setLoadingButton(false)
+                        const decoded = jwt_decode(dataAccept.data.accessToken);
+                        let SaveUser= async () => {
                         await AsyncStorage.setItem("saveReguster",JSON.stringify(decoded));
-                     };
-                     SaveUser();
-                                                                          
-                    setStatusEmail(false);
-                    Navigation.navigate("Home")
-            }
+                        };SaveUser();
+                        AuthnticationContext.setAllUserData(decoded)
+
+                        Navigation.navigate("Home")
+                }else{
+                        setLoadingButton(false)
+                        setStatusEmail("Wrong Email Or Password")
+                }
             }).catch((errors)=>{
-                    //if The Email Or The Password ARE WRONG
-                    setStatusEmail("Wrong Email Or Password")
-            });
+                setLoadingButton(false)
+                setStatusEmail("Wrong Email Or Password")
+        });
         
       }
   }

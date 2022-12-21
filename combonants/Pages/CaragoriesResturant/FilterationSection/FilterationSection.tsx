@@ -1,19 +1,46 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import {View,TouchableOpacity} from "react-native";
 import { Text_Item,StyleText } from '../../../Custom_Combonants/Text_Combonants';
+import { Filtration_Create_Context } from '../ContextApi/FilterContext';
+import {DataUsing} from "./dataUsingFiltration";
+import SearchResturant from './SearchResturant/SearchResturant';
 
-import {DataUsing} from "./dataUsingFiltration"
+import { Style } from './style/style';
 
 function FilterationSection() {
+  const [OpenType,setOpenType]=useState<string|boolean>(false);
+  const ModelFilter=useContext(Filtration_Create_Context);
+
+
+  const getdata=(name:string)=>{
+    if(name=="Filtration"){
+      ModelFilter.setModalFilter(true)
+    }else{
+      if(name==OpenType){
+        setOpenType(false)
+  
+      }else{
+        setOpenType(name)
+      }  
+    }
+  }
+
+
+
   return (
-    <View style={{marginBottom:50,display:"flex",flexDirection:"row-reverse",justifyContent:"space-between",paddingLeft:30,paddingRight:30}}>
-        {DataUsing.map(({name,icons},i)=>(
-            <TouchableOpacity key={i} style={{display:"flex",flexDirection:"row",backgroundColor:"rgba(0,0,0,.05)",padding:8,borderRadius:10}}>
-               <Text_Item Stylesh={StyleText.medium} textUse={name} AddStyle={{marginLeft:5,marginRight:5}}/>
-               {icons}
-            </TouchableOpacity>
-        ))}
-    </View>
+    <>
+      <View style={Style.container}>
+          {DataUsing.map(({name,icons},i)=>(
+              <TouchableOpacity key={i} onPress={()=>{getdata(name)}} 
+                style={Style.touchableOpacity}>
+                <Text_Item Stylesh={StyleText.medium} textUse={name} 
+                    AddStyle={Style.text}/>
+                {icons}
+              </TouchableOpacity>
+          ))}
+      </View>
+      {OpenType=="Search"?<SearchResturant/>:<></>}
+    </>
   )
 }
 

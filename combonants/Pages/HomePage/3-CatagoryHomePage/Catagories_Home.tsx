@@ -13,7 +13,7 @@ function Catagories_Home() {
   const Navigation=useNavigation();
 
   const GoToCatagories=(Datause:any)=>{
-    Navigation.navigate("search",{categories:Datause})
+    Navigation.navigate("search",{WHEREDATA:`categories IN ('${Datause}')`})
   }
 
 

@@ -21,7 +21,7 @@ export const addToCartSlice = createSlice({
       state.value=state.value+=1;
 
       //Get The Index Of The Product Add
-      const objIndex = state.allProduct.findIndex((obj => obj.itemId == action.payload.itemId));
+      const objIndex = state.allProduct.findIndex((obj => obj.itemid == action.payload.itemid));
 
       //If The Product Not On Cart
       if(objIndex==-1){
@@ -29,9 +29,9 @@ export const addToCartSlice = createSlice({
       }else{
 
       // If The Product On The Cart
-        let newnumber=Number(state.allProduct[objIndex].selectItemQuentuty)
+        let newnumber=Number(state.allProduct[objIndex].selectitemquentuty)
         newnumber+=1
-        state.allProduct[objIndex].selectItemQuentuty =newnumber;  
+        state.allProduct[objIndex].selectitemquentuty =newnumber;  
       }
 
       //Save The Data In The Local Storage
@@ -47,16 +47,16 @@ export const addToCartSlice = createSlice({
         state.value=state.value-=1;
 
         //Check All The Product 
-        const objIndex = state.allProduct.findIndex((obj => obj.itemId == action.payload.itemId));
+        const objIndex = state.allProduct.findIndex((obj => obj.itemid == action.payload.itemid));
 
 
         //If The Product Quantity 1 Remove From Cart
-        if(state.allProduct[objIndex].selectItemQuentuty==1){
-          state.allProduct=state.allProduct.filter((data,i)=>(data.itemId!=action.payload.itemId))
+        if(state.allProduct[objIndex].selectitemquentuty==1){
+          state.allProduct=state.allProduct.filter((data,i)=>(data.itemid!=action.payload.itemid))
         }else{
-          let newnumber=Number(state.allProduct[objIndex].selectItemQuentuty)
+          let newnumber=Number(state.allProduct[objIndex].selectitemquentuty)
           newnumber-=1
-          state.allProduct[objIndex].selectItemQuentuty =newnumber;  
+          state.allProduct[objIndex].selectitemquentuty =newnumber;  
         }
         
 

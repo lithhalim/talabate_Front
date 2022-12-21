@@ -1,38 +1,16 @@
 import React from 'react';
 import { ItemSelectProvider } from './contextApi/SelectItemInResturant';
 import ResturantPage from './ResturantPage';
-import { gql,useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import LoadingCombonants from '../../Custom_Combonants/LoadingCombonants/LoadingCombonants';
+import { QueryData } from './graphql/query';
 
 
 
 function MainContainerResturantPage({route}:any) {
-  const {restaurantId}=route.params;
+  const {restaurantid}=route.params;
+  const {data,loading} =useQuery(QueryData(restaurantid));
 
-  let ResturantType=gql`
-  {
-    getRestaurant(restaurantId:"${restaurantId}"){
-      restaurantId,
-      restaurantName,
-      images,
-      categories,
-      AllItems{
-        itemId, 
-        Price,
-        description,
-        productName,
-        quantity,
-        images,
-        selectItemQuentuty,
-        ResturantSelect
-      }
-      
-    }
-  }
-  `
-
-
-  const {data,loading} =useQuery(ResturantType);
 
   if(loading){
     return <LoadingCombonants/>
@@ -42,7 +20,7 @@ function MainContainerResturantPage({route}:any) {
   return (
       <ItemSelectProvider>
         {data?<ResturantPage
-         datause={data.getRestaurant[0]}/>:<></>}
+         datause={data.GetResturant[0]}/>:<></>}
       </ItemSelectProvider>
   )
 }

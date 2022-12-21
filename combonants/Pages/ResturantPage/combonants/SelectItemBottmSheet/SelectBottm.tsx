@@ -5,7 +5,7 @@ import IconsSection from './combonants/IconsSection';
 import NamePrice from "./combonants/NamePrice";
 import BottonSectio from "./combonants/BottonSectio";
 import { Modal_Create_Context } from '../../contextApi/SelectItemInResturant';
-
+import { Styless } from './style/style';
 
 
 
@@ -16,15 +16,18 @@ function SelectBottm() {
   return (
     <>
         {ModelContext.DataItem!==false?
-            <View style={{zIndex:10,elevation:10}}>
+            <View style={Styless.container}>
               <Image source={{uri:ModelContext.DataItem.images}} 
-                  style={{height:220,width:"100%"}}/>
+                  style={Styless.firstImage}/>
               <NamePrice datause={ModelContext.DataItem}/>
               <IconsSection/>
 
               <View style={{padding:15}}>
-                  <Text_Item Stylesh={StyleText.medium} textUse='Description' AddStyle={{marginLeft:"auto"}}/>
-                  <Text_Item Stylesh={StyleText.sosmall} textUse={ModelContext.DataItem.description} AddStyle={{marginLeft:"auto",maxWidth:"95%"}}/>
+                  <Text_Item Stylesh={StyleText.medium} 
+                     textUse='Description' AddStyle={{marginLeft:"auto"}}/>
+                  <Text_Item Stylesh={StyleText.sosmall} 
+                     textUse={ModelContext.DataItem.description} 
+                     AddStyle={{marginLeft:"auto",maxWidth:"95%"}}/>
               </View>
 
               <BottonSectio datause={ModelContext.DataItem}/>      
