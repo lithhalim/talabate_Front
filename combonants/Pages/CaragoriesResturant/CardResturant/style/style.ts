@@ -19,6 +19,6 @@ firstIcons:{
     fontSize:18,color:"orange",marginLeft:5
 },
 secandIocns:{
-    fontSize:20,color:"black",marginTop:10,marginLeft:25
+    fontSize:20,color:"orange",marginTop:10,marginLeft:25
 }
 })

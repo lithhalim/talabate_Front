@@ -34,10 +34,10 @@ export const addToCartSlice = createSlice({
         state.allProduct[objIndex].selectitemquentuty =newnumber;  
       }
 
+     const Save= async()=>{
       //Save The Data In The Local Storage
-      let SaveUser= async () => {
-        await AsyncStorage.setItem("AddToCart",JSON.stringify(state))};
-      SaveUser();
+      await AsyncStorage.setItem("AddToCart",JSON.stringify(state));
+      };Save();
       },
 
 
@@ -59,17 +59,20 @@ export const addToCartSlice = createSlice({
           state.allProduct[objIndex].selectitemquentuty =newnumber;  
         }
         
-
-        let SaveUser= async () => {
-          await AsyncStorage.setItem("AddToCart",JSON.stringify(state))};
-        SaveUser();
-  
+       const Save= async()=>{
+          await AsyncStorage.setItem("AddToCart",JSON.stringify(state));
+        };Save();  
+      },
+      SaveAddToCard:(state,actions)=>{
+        state.value=actions.payload.value;
+        state.allProduct=actions.payload.allProduct;
       }
+  
   },
 })
 
 // Action creators are generated for each case reducer function
-export const {  increasequantity,decreasequantity } = addToCartSlice.actions
+export const {  increasequantity,decreasequantity,SaveAddToCard } = addToCartSlice.actions
 
 export default addToCartSlice.reducer
 

@@ -8,6 +8,8 @@ export const QueryData=(restaurantid:any)=>{
         restaurantid,
         images,
         restaurantname,
+        freedelivery,
+        numberrate,
         rate,
         freedelivery,
         allitems{
@@ -22,7 +24,8 @@ export const QueryData=(restaurantid:any)=>{
         }
         
       }
-    }      `
+    }
+    `
   
     return ResturantType
 }

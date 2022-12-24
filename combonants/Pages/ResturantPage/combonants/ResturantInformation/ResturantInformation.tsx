@@ -7,16 +7,16 @@ import IconsResturant from './combonants/IconsResturant';
 import {Styles} from "./style/style";
 
 function InformationResturant({datause}:any) {
-    const [text,onChangeText]=useState("")
+    const [text,onChangeText]=useState("");
+
 
 
   return (
     <View style={{backgroundColor:"white"}}>
 
         <ImageResturant  images={datause.images}/>
-        <NameDiscription resturantname={datause.restaurantname} 
-          catagories={datause.categories}/>
-        <IconsResturant/>
+        <NameDiscription datause={datause} />
+        <IconsResturant datause={datause}/>
 
         <View style={Styles.containerSearch}>
             <AntDesign name="search1" size={20} color="black"

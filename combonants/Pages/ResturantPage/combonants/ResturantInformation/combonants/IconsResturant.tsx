@@ -1,19 +1,19 @@
 import React from 'react';
-import {View,Text} from "react-native";
+import {View} from "react-native";
 import {StyleText,Text_Item} from '../../../../../Custom_Combonants/Text_Combonants';
 import { AntDesign } from '@expo/vector-icons';
 import {Styles}from "../style/style"
 
 
-function IconsResturant() {
+function IconsResturant({datause}:any) {
+    const{rate,numberrate}=datause
   return (
     <View>
         <View style={Styles.StarContaier}>
             <AntDesign name="star" size={20} color="orange" />
-            <Text_Item Stylesh={StyleText.medium} textUse='4.2 (455 Reviews)' 
+            <Text_Item Stylesh={StyleText.medium} textUse={`${rate} (${numberrate} Reviews)`} 
             AddStyle={{marginRight:2,fontSize:12}}/>
         </View>
-
 
         <View style={Styles.deleveryIcon}>
             {DataUsing.map(({icons,name,value},i)=>(
@@ -25,7 +25,6 @@ function IconsResturant() {
             ))}
         </View>
 
-      
     </View>
   )
 }

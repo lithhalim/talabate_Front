@@ -4,11 +4,13 @@ import { Formik } from 'formik';
 import InputFiled from './combonant/InputFiled/InputFiled';
 import {Style} from "./Style/style";
 import UploadImageButton from './combonant/UploadImage/UploadImageButton';
-import PostData_Reguster from '../FetchApiSection/Api_Section';
 import { useNavigation } from '@react-navigation/native';
 import ButtonNotification from './combonant/ButtonNotification/ButtonNotification';
 import { UploadImage_Context } from './combonant/UploadImage/contextApi/UploadImageContext';
 import { Authntication_Create_Context } from '../../../../contextApi/Authntication_Context';
+
+import { SignupFetchApi } from '../FetchApiSection/SignupFetchApi';
+import { SigninFetchApi } from '../FetchApiSection/SigninFetchApi';
 
 
 function InputContainer({TypeData,AllDataUse}:any) {
@@ -21,11 +23,17 @@ function InputContainer({TypeData,AllDataUse}:any) {
 
 
     const getAllData=(data:any)=>{
-        setLoadingButton(true)
-        PostData_Reguster(
-            TypeData,data,setStatusEmail,
-            Navigation,UploadImages,setLoadingButton,
-            AuthnticationContext)
+        setLoadingButton(true);
+        if(TypeData=="signin"){
+            SigninFetchApi(data,setStatusEmail,Navigation,
+                setLoadingButton,AuthnticationContext)
+
+        }else{
+            SignupFetchApi(data,setStatusEmail,
+                Navigation,UploadImages,
+                setLoadingButton)
+        }
+
     }
 
 

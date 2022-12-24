@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import  addToCartSlice  from '../AddToCard/addToCart';
+import AddFavorate from '../AddToFavorate/AddFavorate';
 
 
 
@@ -7,6 +8,7 @@ import  addToCartSlice  from '../AddToCard/addToCart';
 export const Store = configureStore({
   reducer: {
     addToCartSlice:addToCartSlice,
+    addFavorate:AddFavorate,
   },
    
   middleware: (getDefaultMiddleware) =>
